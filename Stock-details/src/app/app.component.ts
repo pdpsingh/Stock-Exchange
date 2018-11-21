@@ -119,6 +119,9 @@ export class AppComponent {
       let options = new RequestOptions({ headers: headers });
       this.http.get(apiUrl + 'function=SYMBOL_SEARCH&keywords=' + this.term + '&apikey=' + apiKey)
         .subscribe(res => {
+          if(res.json().bestMatches || !res.json().hasOwnProperty("bestMatches")){
+            this.showChartsData = false;
+          }
 
           this.result = res.json().bestMatches;
           resolve(this.result);
