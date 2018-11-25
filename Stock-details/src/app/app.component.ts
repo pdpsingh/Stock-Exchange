@@ -88,6 +88,8 @@ export class AppComponent {
     this.showChartsData = true;
     this.showChartData(this.symbolItem);
   }
+
+  // show chart through data fetch
   showChartData(symbolItem) {
     return new Promise((resolve, reject) => {
       let headers = new Headers({ 'Content-Type': 'application/json' });
