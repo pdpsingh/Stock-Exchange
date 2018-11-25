@@ -96,6 +96,7 @@ export class AppComponent {
         .subscribe(res => {
           this.showdataChart = res.json()[this.seriesValue];
           this.barChartLabels = Object.keys(this.showdataChart).slice(0, 12);
+          this.barChartData[0].data = [];
           for (let i = 0; i < Object.keys(this.showdataChart).length; i++) {
             this.barChartData[0].data.push(this.showdataChart[this.barChartLabels[i]]['4. close'])
           }
